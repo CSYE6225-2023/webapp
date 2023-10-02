@@ -1,0 +1,40 @@
+name: Assignment3
+
+on: [push]
+
+jobs:
+  build-and-publish-site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: update-runner
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl
+        
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: build-project
+        run: |
+          node -v
+          npm -v
+          ls -al
+          pwd
+          npm install
+          ls -al
+        
+      - uses: samin/mysql-action@v1
+        with: 
+          host prt: 3306
+
+      - name: run-tests
+        run: |
+          mysql -V
+          npm test 
+
+      
+        
+
