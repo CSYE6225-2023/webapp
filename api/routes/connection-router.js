@@ -6,8 +6,8 @@ const router = express.Router();
 
 router.get("/", connectionController.checkConnection);
 
-router.all((req, res) => {
-  setResponse(res, 405);
+router.all("*", (req, res) => {
+  setResponse(res, 400, "Bad Request"); // Return 400 Bad Request for invalid requests
 });
 
 export default router;
