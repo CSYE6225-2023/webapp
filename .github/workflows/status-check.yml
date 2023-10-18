@@ -1,0 +1,28 @@
+name: Packer Status Check
+
+on:
+  pull_request:
+    branches: [ main ]
+    # types:
+    #   - opened
+    #   - synchronize
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Initialize Packer
+      run: |
+        packer init ./aws-debian.pkr.hcl
+        
+      shell: bash
+
+    - name: Packer fmt Check
+      run: packer fmt -check .
+
+    - name: Packer Validate
+      run: packer validate .
