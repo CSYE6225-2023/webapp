@@ -1,4 +1,4 @@
-name: webapp
+name: 1st Flow - webapp
 
 on:
   pull_request:

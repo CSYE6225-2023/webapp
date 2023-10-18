@@ -1,4 +1,4 @@
-name: Packer Check
+name: 2nd Flow - Packer Check
 
 on:
   pull_request:
