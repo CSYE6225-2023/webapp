@@ -46,7 +46,7 @@ jobs:
 
       - name: zip webapp
         run: |
-          zip -r webappGit.zip
+          zip -r webappGit.zip ./
 
       - name: Check Versions and Install Dependencies
         run: |
