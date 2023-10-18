@@ -47,7 +47,8 @@ jobs:
       - name: zip webapp
         run: |
           zip -r webapp.zip ./
-          cd webapp.zip
+          
+          cd ./webapp
       - name: Check Versions and Install Dependencies
         run: |
           pwd
