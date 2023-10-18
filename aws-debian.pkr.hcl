@@ -31,15 +31,15 @@ source "amazon-ebs" "my-ami" {
 build {
   sources = ["source.amazon-ebs.my-ami"]
 
-  post-processor "manifest" {
-    output = "myapp-ami.json"
-  }
+  // post-processor "manifest" {
+  //   output = "myapp-ami.json"
+  // }
 
-  post-processor "ami" {
-    output_name   = "ami_id"  # This captures the AMI ID
-    ami_name      = "my-app-ami"
-  }
-  
+  // post-processor "ami" {
+  //   output_name   = "ami_id"  # This captures the AMI ID
+  //   ami_name      = "my-app-ami"
+  // }
+
   provisioner "file" {
     source      = "webappGit.zip"
     destination = "/home/admin/"
