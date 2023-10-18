@@ -33,7 +33,7 @@ build {
 
   provisioner "file" {
     source      = "webappGit.zip"
-    destination = "/home/admin/webapp.zip"
+    destination = "/home/admin/"
   }
 
   provisioner "shell" {

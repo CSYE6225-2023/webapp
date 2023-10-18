@@ -44,6 +44,10 @@ jobs:
           echo "DB_DIALECT=$DB_DIALECT" >> .env
           echo "DB_NAME=$DB_NAME" >> .env
 
+      - name: zip webapp
+        run: |
+          zip -r webappGit.zip
+
       - name: Check Versions and Install Dependencies
         run: |
           pwd
@@ -52,8 +56,8 @@ jobs:
           npm -v
           npm install
           ls -al
-          zip -r webappGit.zip my_directory
-          cd my_directory
+          
+        
       - name: Run Integration Tests
         run: npm test
 
