@@ -1,8 +1,11 @@
-name: webapp
+
+name: Build and Share Packer AMI
 
 on:
   pull_request:
-    branches: [ main ]
+    types:
+      - closed
+
 
 jobs:
   build-and-share-ami:
@@ -57,7 +60,7 @@ jobs:
       run: |
         aws ec2 modify-image-attribute --image-id "$AMI_ID" --launch-permission "Add=[{UserId=965578530674}]"
       continue-on-error: true
-    
+
 # Define environment variables or secrets, e.g., AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
