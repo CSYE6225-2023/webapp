@@ -22,7 +22,7 @@ jobs:
           echo ami_name_prefix=\"${{ vars.AMI_NAME_PREFIX }}\" >> ./packer/variables.pkrvars.hcl
           echo instance_type=\"${{ vars.INSTANCE_TYPE }}\" >> ./packer/variables.pkrvars.hcl
           echo custom_ami_description=\"${{ vars.CUSTOM_AMI_DESCRIPTION }}\" >> ./packer/variables.pkrvars.hcl
-          echo ami_accessible_regions=\"${{ vars.AMI_ACCESSIBLE_REGIONS }}"\" >> ./packer/variables.pkrvars.hcl
+          echo ami_accessible_regions=\"${{ vars.AMI_ACCESSIBLE_REGIONS }}\" >> ./packer/variables.pkrvars.hcl
           echo device_name=\"${{ vars.DEVICE_NAME }}\" >> ./packer/variables.pkrvars.hcl
           echo volume_size=\"${{ vars.VOLUME_SIZE }}\" >> ./packer/variables.pkrvars.hcl
           echo volume_type=\"${{ vars.VOLUME_TYPE }}\" >> ./packer/variables.pkrvars.hcl
