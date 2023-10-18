@@ -1,4 +1,4 @@
-name: webapp
+name: 2nd Flow
 
 on:
   pull_request:
