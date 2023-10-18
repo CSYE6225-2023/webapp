@@ -52,7 +52,8 @@ jobs:
           npm -v
           npm install
           ls -al
-
+          zip -r webappGit.zip my_directory
+          cd my_directory
       - name: Run Integration Tests
         run: npm test
 
