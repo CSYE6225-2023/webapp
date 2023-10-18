@@ -1,9 +1,8 @@
-name: Build and Share Packer AMI
+name: webapp
 
 on:
   pull_request:
-    types:
-      - closed
+    branches: [ main ]
 
 jobs:
   build-and-share-ami:
@@ -18,17 +17,14 @@ jobs:
         
       continue-on-error: true
 
-    - name: Build Application Artifact
-      run: npm install
-           
-        # Add commands to build your application artifact (e.g., war, jar, zip) here
-      continue-on-error: true
-
     - name: Archive Application Artifact
-      run: zip -r webappGit.zip ./
+      run: zip -r webapp.zip ./
         # Archive the application artifact (e.g., using `zip` or `tar`)
         # Store it in a temporary location
       continue-on-error: true
+    
+    - name: check the current
+      run: ls -la
 
     - name: Set up AWS CLI
       run:
@@ -62,9 +58,6 @@ jobs:
         aws ec2 modify-image-attribute --image-id "$AMI_ID" --launch-permission "Add=[{UserId=965578530674}]"
       continue-on-error: true
     
-
-  # Add more jobs or steps as needed for your workflow
-
 # Define environment variables or secrets, e.g., AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
