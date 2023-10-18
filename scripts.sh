@@ -25,16 +25,16 @@ pwd
 ls -al
 cd webapp/ || exit
 pwd
-touch .env
-cat<<EOL> .env
-PORT=5000
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_USER=admin
-DB_PASSWORD=password
-DB_DIALECT=mysql
-DB_NAME=mydb
-EOL
+# touch .env
+# cat<<EOL> .env
+# PORT=5000
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+# DB_USER=admin
+# DB_PASSWORD=password
+# DB_DIALECT=mysql
+# DB_NAME=mydb
+# EOL
 sudo npm install
 
 
