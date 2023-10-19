@@ -78,11 +78,12 @@ jobs:
 
       - name: Check MySQL Running Status
         run: |
-          sudo apt-get update
-          sudo apt-get install -y curl
-          sudo systemctl start mysql
-          mysql -V
-          mysql -u root -p"${{ secrets.MY_SQL_PASSWORD }}" -e "CREATE DATABASE mydb;"
+          sudo /etc/init.d/mysql start
+          mysql -h 127.0.0.1 --port 3306 -u root -p'${{ secrets.ROOT_DB_PASS }}' -e "CREATE USER '${{ secrets.DB_USER }}'@'localhost' IDENTIFIED BY '${{ secrets.DB_PASSWORD }}';"  
+          mysql -h 127.0.0.1 --port 3306 -u root -p'${{ secrets.ROOT_DB_PASS }}' -e "GRANT ALL ON *.* TO '${{ secrets.DB_USER }}'@'localhost';"
+          mysql -h 127.0.0.1 --port 3306 -u root -p'${{ secrets.ROOT_DB_PASS }}' -e "FLUSH PRIVILEGES;"
+          mysql -h 127.0.0.1 --port 3306 -u root -p'${{ secrets.ROOT_DB_PASS }}' -e "CREATE DATABASE ${{ secrets.DB_NAME }};"
+
 
       - name: Set up Node
         uses: actions/setup-node@v3
