@@ -11,7 +11,7 @@ npm -v
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt install mariadb-server -y
-echo "GRANT ALL ON *.* TO 'admin'@'localhost' IDENTIFIED BY 'admin' WITH GRANT OPTION;" | sudo mariadb
+echo "GRANT ALL ON *.* TO 'admin'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;" | sudo mariadb
 echo "FLUSH PRIVILEGES;" | sudo mariadb
 echo "show databases;" | sudo mariadb
 echo "create database mydb;" | sudo mariadb
