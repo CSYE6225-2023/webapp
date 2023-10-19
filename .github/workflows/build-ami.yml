@@ -87,7 +87,9 @@ jobs:
         run: |  
           pwd
           ls -la
+
           packer init ./packer/aws-debian.pkr.hcl 
+
         
       - name: Build AMI
         env:
@@ -95,3 +97,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         run: |
           packer build --var-file=./packer/variables.pkrvars.hcl ./packer/aws-debian.pkr.hcl
+
