@@ -11,7 +11,7 @@ npm -v
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt install mariadb-server -y
-echo "GRANT ALL ON *.* TO 'admin'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;" | sudo mariadb
+echo "GRANT ALL ON *.* TO 'admin'@'localhost' IDENTIFIED BY 'admin' WITH GRANT OPTION;" | sudo mariadb
 echo "FLUSH PRIVILEGES;" | sudo mariadb
 echo "show databases;" | sudo mariadb
 echo "create database mydb;" | sudo mariadb
@@ -19,7 +19,9 @@ echo "show databases;" | sudo mariadb
 echo "exit" | sudo mariadb
 sudo systemctl status mariadb
 sudo mysqladmin version
-unzip webapp.zip
+sudo mkdir webapp
+sudo unzip webapp.zip -d webapp
+sudo apt-get remove -y git
 echo "------------Unziped File Successfully--------------"
 pwd
 ls -al
@@ -35,6 +37,7 @@ pwd
 # DB_DIALECT=mysql
 # DB_NAME=mydb
 # EOL
+cat .env
 sudo npm install
 
 
