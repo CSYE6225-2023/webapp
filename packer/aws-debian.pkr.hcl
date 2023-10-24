@@ -88,7 +88,7 @@ variable "default_vpc_id" {
   default = "vpc-0fde750c0554133f1"
 }
 
-source "amazon-ebs" "my-ami" {
+  source "amazon-ebs" "my-ami" {
   region          = "${var.aws_region}"
   profile         = "${var.profile}"
   ami_name        = "${var.ami_name_prefix}_${formatdate("YYYY_MM_DD_hh_mm_ss", timestamp())}"
